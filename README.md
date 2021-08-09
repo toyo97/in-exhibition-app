@@ -1,24 +1,6 @@
-# test
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Colors - hex codes
+- *ROSSO*: `#DD573A`
+- *AZZURRO*: `#3C9EB7`
+- *ROSA*:`#D587AE`
+- *BEIGE*: `#E3DFD3`
+- *VERDE*: `#147351`

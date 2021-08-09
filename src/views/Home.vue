@@ -1,8 +1,8 @@
 <template>
-  <div id="home">
+  <v-card-text id="home">
     This is the Home page
     <router-link to="/exhibition">Start</router-link>
-  </div>
+  </v-card-text>
 </template>
 
 <script>

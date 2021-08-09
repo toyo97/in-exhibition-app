@@ -1,35 +1,38 @@
 <template>
   <div class="exhibition">
-    This is the Exhibition page.<br>
+    <h1>{{component}}</h1>
+    <br>
     <component v-bind:is="component" />
-    <button v-on:click="toggle" v-if="component!=='End'">Next</button>
+    <v-btn @click="toggle" v-if="component!=='End'">Next</v-btn>
   </div>
 </template>
 
 <script>
 import LoginForm from "@/components/LoginForm";
-import Quiz from "@/components/Quiz";
-import NFCReader from "@/components/NFCReader";
-import GooseGame from "@/components/GooseGame";
+import Indispensable from "@/components/Indispensable";
+import Insight from "@/components/Insight";
+import Deliverin from "@/components/Deliverin";
+import Invisible from "@/components/Invisible";
 import End from "@/components/End";
 
 export default {
   name: 'Exhibition',
   components:{
-    LoginForm, Quiz, NFCReader, GooseGame, End
+    LoginForm, Indispensable, Insight, Deliverin, Invisible, End
   },
   data () {
     return {
-      component: "LoginForm"
+      component: "LoginForm",
     }
   },
   methods: {
     toggle () {
-      switch (this.component){
-        case "LoginForm": this.component = "Quiz"; break;
-        case "Quiz": this.component = "NFCReader"; break;
-        case "NFCReader": this.component = "GooseGame"; break;
-        case "GooseGame": this.component = "End"; break;
+      switch (this.component) {
+        case "LoginForm": this.component = "Indispensable"; break;
+        case "Indispensable": this.component = "Insight"; break;
+        case "Insight": this.component = "Deliverin"; break;
+        case "Deliverin": this.component = "Invisible"; break
+        case "Invisible": this.component = "End"; break;
       }
     }
   }
