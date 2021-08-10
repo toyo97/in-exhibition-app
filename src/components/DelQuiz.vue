@@ -1,12 +1,12 @@
 <template>
-<span>show quiz for {{itemCode}}</span>
+<span>show quiz for {{boxCode}}</span>
 </template>
 
 <script>
 export default {
   name: "DelQuiz",
   props: {
-    itemCode: String
+    boxCode: String
   }
 }
 </script>

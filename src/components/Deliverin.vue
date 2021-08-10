@@ -4,7 +4,7 @@
 
   <QRCode @decode="code = $event"></QRCode>
 
-  <DelQuiz boxCode="code"></DelQuiz>
+  <DelQuiz v-bind:boxCode="code"></DelQuiz>
 
 </v-container>
 </template>
