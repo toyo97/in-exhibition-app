@@ -5,7 +5,9 @@
 <script>
 export default {
   name: "DelQuiz",
-  props: ['itemCode']
+  props: {
+    itemCode: String
+  }
 }
 </script>
 

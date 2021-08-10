@@ -2,9 +2,9 @@
 <v-container>
   <p>Scan the objects and try to guess</p>
 
-  <QRCode></QRCode>
+  <QRCode @decode="code = $event"></QRCode>
 
-  <DelQuiz v-bind:itemCode="this.code" @decode="this.code = $event"></DelQuiz>
+  <DelQuiz boxCode="code"></DelQuiz>
 
 </v-container>
 </template>
@@ -17,7 +17,19 @@ name: "Deliverin",
   components: {DelQuiz, QRCode},
   data () {
     return {
-      code: ''
+      code: '',
+      boxData: [
+        {
+          boxCode: "VGFHI",
+          data: "FTM, transgender, USA",
+          img: ""
+        },
+        {
+          boxCode: "XQRTP",
+          data: "Male, Brown skin color",
+          img: ""
+        }
+      ]
     }
   }
 }
