@@ -13,7 +13,7 @@
               alt="IN logo"
               class="shrink mr-2"
               contain
-              src="../public/favicon.png"
+              src="../public/logo.png"
               transition="scale-transition"
               width="40"
           />
