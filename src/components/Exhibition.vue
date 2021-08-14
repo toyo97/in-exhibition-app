@@ -3,7 +3,9 @@
     <h1>{{component}}</h1>
     <br>
     <component v-bind:is="component" />
+    <v-col class="text-right">
     <v-btn @click="toggle" v-if="component!=='End'">Next</v-btn>
+    </v-col>
   </div>
 </template>
 

@@ -3,12 +3,12 @@
     <h2>{{quizData[curr_question].question}}</h2>
     <v-row>
       <v-col>
-        <v-btn @click="nextQuestion">{{quizData[curr_question].choices[0]}}</v-btn>
-        <v-btn @click="nextQuestion">{{quizData[curr_question].choices[1]}}</v-btn>
+        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px;font-size: 3vw">{{quizData[curr_question].choices[0]}}</span></v-btn>
+        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px;font-size: 3vw">{{quizData[curr_question].choices[1]}}</span></v-btn>
       </v-col>
       <v-col>
-        <v-btn @click="nextQuestion">{{quizData[curr_question].choices[2]}}</v-btn>
-        <v-btn @click="nextQuestion">{{quizData[curr_question].choices[3]}}</v-btn>
+        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px;font-size: 3vw">{{quizData[curr_question].choices[2]}}</span></v-btn>
+        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px; font-size: 3vw">{{quizData[curr_question].choices[3]}}</span></v-btn>
       </v-col>
     </v-row>
     <br>
@@ -16,10 +16,14 @@
   </div>
 </template>
 
+<!--TODO fix button dimensions-->
+
 <script>
 export default {
   name: "Quiz",
-  props: ['quizData'],
+  props: {
+    quizData: Array
+  },
   data () {
     return {
       curr_question: 0,
