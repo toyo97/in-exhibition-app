@@ -31,7 +31,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
+<!--      <v-btn
           to="/exhibition"
           color="#E3DFD3"
           light rounded
@@ -40,7 +40,7 @@
       >
         <span class="mr-2">Start here</span>
         <v-icon>mdi-play</v-icon>
-      </v-btn>
+      </v-btn>-->
     </v-app-bar>
 
     <v-main>
@@ -52,16 +52,16 @@
     </v-main>
 
 <!--    Bottom navigation to show progress of exhibits-->
-    <BottomNav></BottomNav>
+<!--    <BottomNav></BottomNav>-->
   </v-app>
 </template>
 
 <script>
-import BottomNav from "@/components/BottomNav";
+// import BottomNav from "@/components/BottomNav";
 
 export default {
   name: 'App',
-  components: {BottomNav},
+  // components: {BottomNav},
   data: () => ({
     //
   }),

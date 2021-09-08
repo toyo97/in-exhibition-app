@@ -4,7 +4,7 @@
     <br>
     <component v-bind:is="component" />
     <v-col class="text-right">
-    <v-btn @click="toggle" v-if="component!=='End'">Next</v-btn>
+    <v-btn :disabled="!$store.state.obj.validForm" @click="toggle" v-if="component!=='End'">Next</v-btn>
     </v-col>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
   data () {
     return {
       component: "LoginForm",
+      valid: false
     }
   },
   methods: {

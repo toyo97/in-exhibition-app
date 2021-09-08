@@ -1,14 +1,16 @@
 <template>
   <div id="quiz">
     <h2>{{quizData[curr_question].question}}</h2>
-    <v-row>
-      <v-col>
-        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px;font-size: 3vw">{{quizData[curr_question].choices[0]}}</span></v-btn>
-        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px;font-size: 3vw">{{quizData[curr_question].choices[1]}}</span></v-btn>
-      </v-col>
-      <v-col>
-        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px;font-size: 3vw">{{quizData[curr_question].choices[2]}}</span></v-btn>
-        <v-btn @click="nextQuestion" style="width:100px;"><span class="text-truncate" style="width:80px; font-size: 3vw">{{quizData[curr_question].choices[3]}}</span></v-btn>
+    <v-row align="center">
+      <v-col xs="6" v-for="col in [[0,1], [2,3]]" :key="col">
+        <v-card style="height: 100%" class="ma-4"
+                v-for="idx in col" :key="idx"
+                @click="nextQuestion"
+                height="120" width="120">
+          <v-card-text style="height: 100%" align="center">
+            {{quizData[curr_question].choices[idx]}}
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
     <br>
