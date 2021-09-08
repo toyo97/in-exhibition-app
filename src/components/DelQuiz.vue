@@ -38,7 +38,8 @@ export default {
               "Delivered pizza to some Trump supporters",
               "Was wearing two t-shirts at once",
               "Had to attach Trump posters while delivering pizza"
-            ]
+            ],
+            answer: 1
           }, {
             question: "The owner of the box...",
             choices: [
@@ -46,7 +47,8 @@ export default {
               "Felt unsafe meeting the customers",
               "Was offered a bite of pizza",
               "Got no tip"
-            ]
+            ],
+            answer: 1
           }]
         },
         {
@@ -61,7 +63,8 @@ export default {
               "Wants to take all the necessary precautions",
               "Was given very low tip",
               "Is ill"
-            ]
+            ],
+            answer: 1
           }, {
             question: "The owner of the box...",
             choices: [
@@ -69,7 +72,8 @@ export default {
               "Is rich",
               "Has COVID",
               "Had not enough change for the customers"
-            ]
+            ],
+            answer: 0
           }]
         }
       ]

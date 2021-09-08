@@ -31,22 +31,24 @@
 
       <v-spacer></v-spacer>
 
-<!--      <v-btn
-          to="/exhibition"
-          color="#E3DFD3"
-          light rounded
-          value="exhibition"
+      <v-btn
+          v-if="$store.state.obj.user_name !== null && $store.state.obj.validForm"
+          color="navy"
+          class="mx-2"
+          fab
+          small
           elevation="2"
       >
-        <span class="mr-2">Start here</span>
-        <v-icon>mdi-play</v-icon>
-      </v-btn>-->
+        <span style="font-size: 1.5em">{{$store.state.obj.user_name.charAt(0)}}</span>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
       <v-container fluid fill-height>
-        <v-row align="center" class="ms-4">
-        <router-view/>
+        <v-row align="center">
+          <v-col sm="12" class="mr-8 ml-8">
+          <router-view/>
+          </v-col>
         </v-row>
       </v-container>
     </v-main>

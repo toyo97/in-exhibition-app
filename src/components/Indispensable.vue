@@ -22,7 +22,7 @@ export default {
               choices: [
                   "1 or less", "1-5", "5-10", "10 or more"
               ]
-            }, {
+      }, {
               question: "How many euros do you spend for clothes every month?",
               choices: [
                 "10 or less", "10-50", "50-100", "100 or more"
