@@ -4,7 +4,7 @@
   <v-card>
   <v-card-text id="home">
     To start the exhibition, please press the button below! <br>
-        <v-btn href="/#/exhibition">Start</v-btn>
+        <v-btn href="/exhibition">Start</v-btn>
   </v-card-text>
   </v-card>
   </v-container>
