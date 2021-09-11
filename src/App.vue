@@ -44,10 +44,17 @@
     </v-app-bar>
 
     <v-main>
-      <v-container fluid fill-height>
+      <v-container v-if="isMobile()" fluid fill-height :style="styles">
         <v-row align="center">
           <v-col sm="12" class="mr-8 ml-8">
           <router-view/>
+          </v-col>
+        </v-row>
+      </v-container>
+      <v-container v-else fluid fill-height>
+        <v-row align="center">
+          <v-col sm="12" class="mr-8 ml-8">
+            <About></About>
           </v-col>
         </v-row>
       </v-container>
@@ -61,11 +68,30 @@
 <script>
 // import BottomNav from "@/components/BottomNav";
 
+import About from "@/views/About";
 export default {
   name: 'App',
+  components: {About},
   // components: {BottomNav},
   data: () => ({
-    //
+    bgclass: {
+      'background-repeat': 'no-repeat',
+      'background-size': 'auto'
+    }
   }),
+  methods: {
+    isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+  },
+  computed: {
+    styles() {
+      return {
+        'background-image': 'url(' + require('./assets/gfx/fine.png') + ')',
+        'background-repeat': 'no-repeat',
+        'background-size': 'cover'
+      }
+    }
+  }
 };
 </script>
