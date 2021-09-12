@@ -4,3 +4,4 @@
 - <span style="color:#D587AE">&#9632;</span> *ROSA*:`#D587AE`
 - <span style="color:#E3DFD3">&#9632;</span> *BEIGE*: `#E3DFD3`
 - <span style="color:#147351">&#9632;</span> *VERDE*: `#147351`
+- <span style="color:#F5C02D">&#9632;</span> *GIALLO*: `#F5C02D`

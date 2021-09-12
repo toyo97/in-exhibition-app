@@ -87,7 +87,7 @@ export default {
   computed: {
     styles() {
       return {
-        'background-image': 'url(' + require('./assets/gfx/fine.png') + ')',
+        'background-image': 'url(' + require('./assets/gfx/background2.png') + ')',
         'background-repeat': 'no-repeat',
         'background-size': 'cover'
       }

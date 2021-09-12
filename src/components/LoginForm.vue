@@ -1,13 +1,13 @@
 <template>
   <div id="login-form">
-    This is the Login form component
+    <p>Dicci chi sei</p>
     <v-form v-model="$store.state.obj.validForm">
-    <v-text-field v-model="user_name" :rules="nameRules" placeholder="Inserisci il tuo nome" required></v-text-field>
+    <v-text-field v-model="user_name" :rules="nameRules" placeholder="Come ti chiami?" required></v-text-field>
     <br>
-      <v-text-field v-model="age" :rules="ageRules" placeholder="Inserisci la tua età" required></v-text-field>  <br>
-      <v-select v-model="gender" :items="items" required></v-select>
-      <v-text-field v-model="gender" :rules="genderRules" v-if="!['Uomo', 'Donna', 'Preferisco non rispondere'].includes(gender)"
-             placeholder="Inserisci la tua identità di genere"></v-text-field><br>
+      <v-text-field v-model="age" :rules="ageRules" placeholder="Quanti anni hai?" required></v-text-field>  <br>
+      <v-select v-model="gender" :items="items" required placeholder="La tua identità di genere è"></v-select>
+      <v-text-field v-model="gender" :rules="genderRules" v-if="!['Uomo', 'Donna', 'Preferisco non rispondere', ''].includes(gender) || isOther"
+             placeholder="La tua identità di genere è"></v-text-field><br>
     </v-form>
 
   </div>
@@ -18,7 +18,8 @@ export default {
   name: "loginform",
   data () {
     return {
-      gender: 'Donna',
+      isOther: false,
+      gender: '',
       items: ['Uomo', 'Donna', 'Preferisco non rispondere', 'Altro'],
       nameRules: [
           v => !!v || "Devi inserire un nome",
@@ -37,6 +38,7 @@ export default {
     'gender': function (newVal) {
       if (newVal === 'Altro') {
         this.gender = ''
+        this.isOther = true
       }
     }
   },

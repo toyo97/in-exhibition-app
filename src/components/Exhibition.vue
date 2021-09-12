@@ -1,10 +1,11 @@
 <template>
   <div class="exhibition">
-    <h1>{{component}}</h1>
+    <h3 class="title-main">{{exNames[component]}}</h3>
     <br>
     <component v-bind:is="component" />
     <v-col class="text-right">
-    <v-btn :disabled="!$store.state.obj.validForm" @click="toggle" v-if="component!=='End'">Next</v-btn>
+    <v-btn :disabled="!$store.state.obj.validForm" @click="toggle" v-if="component!=='End'">
+      <span class="title-main">Avanti</span></v-btn>
     </v-col>
   </div>
 </template>
@@ -23,7 +24,16 @@ export default {
     LoginForm, Indispensable, Insight, Deliverin, Invisible, End
   },
   data () {
+    let exNames = {
+      "LoginForm": "Profilo",
+      "Indispensable": "Indispensable",
+      "Insight": "Insight",
+      "Deliverin": "Deliver-in",
+      "Invisible": "In-visible"
+    }
+
     return {
+      exNames: exNames,
       component: "LoginForm",
       valid: false
     }
