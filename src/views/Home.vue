@@ -15,7 +15,7 @@
     </v-row>
     <v-row align="end">
       <v-flex class="text-center align-end">
-        <v-btn>TES</v-btn>
+        <v-btn to="/exhibition"><span style="font-family: jangkui,serif">Start</span></v-btn>
       </v-flex>
     </v-row>
   </v-container>
