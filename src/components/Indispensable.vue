@@ -1,19 +1,21 @@
 <template>
-<v-container>
-  <p v-if="!quiz">Interact with the exhibit, then press the button below and answer to few questions</p><br>
-  <v-btn v-if="!quiz" @click="toQuiz">To quiz</v-btn>
+  <div id="indispensable">
+  <div v-if="!quiz">
+    <ExQRCode v-if="!quiz"></ExQRCode>
+    <v-btn v-if="!quiz" @click="toQuiz" class="title-main">Quiz</v-btn>
+  </div>
 
   <Quiz v-if="quiz" v-bind:quiz-data="quizData">
   </Quiz>
-
-</v-container>
+  </div>
 </template>
 
 <script>
 import Quiz from "@/components/Quiz";
+import ExQRCode from "@/components/ExQRCode";
 export default {
   name: "Indispensable",
-  components: {Quiz},
+  components: {ExQRCode, Quiz},
   data () {
     return {
       quiz: false,

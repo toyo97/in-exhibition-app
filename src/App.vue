@@ -44,9 +44,9 @@
     </v-app-bar>
 
     <v-main>
-      <v-container v-if="isMobile()" fluid fill-height :style="styles">
-        <v-row align="center">
-          <v-col sm="12" class="mr-8 ml-8">
+      <v-container md="6" v-if="isMobile()" fluid fill-height :style="styles">
+        <v-row align="center" justify="center">
+          <v-col>
           <router-view/>
           </v-col>
         </v-row>
