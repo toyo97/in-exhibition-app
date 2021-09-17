@@ -3,10 +3,13 @@
     <h3 class="title-main">{{exNames[component]}}</h3>
     <br>
     <component v-bind:is="component" />
+
+    <v-row>
     <v-col class="text-right">
     <v-btn :disabled="!$store.state.obj.validForm" @click="toggle" v-if="component!=='End'">
       <span class="title-main">Avanti</span></v-btn>
     </v-col>
+    </v-row>
   </div>
 </template>
 

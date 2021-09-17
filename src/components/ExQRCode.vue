@@ -12,7 +12,7 @@
         alla prossima exhibit.
       </p>
   </div>
-  <qrcode-stream v-if="isShowingCamera" @init="onInit" @decode="onDecode"></qrcode-stream>
+  <qrcode-stream class="mx-5" v-if="isShowingCamera" @init="onInit" @decode="onDecode"></qrcode-stream>
 </div>
 </template>
 
