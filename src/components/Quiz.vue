@@ -5,11 +5,11 @@
     >
       <h2 class="quiz-title">{{quizData[curr_question].question}}</h2>
       <v-row
-          v-for="idx in [0,1,2,3]" :key="idx">
-          <v-card style="width: 100%" class="ma-4 quiz-choice"
-                  @click="nextQuestion">
+          v-for="(value, name, index) in quizData[curr_question].choices" :key="index">
+          <v-card v-bind:id="'quiz-choice-' + toString(index)" class="ma-4 quiz-choice"
+                  @click="nextQuestion()">
             <v-card-text style="height: 100%" align="center">
-              {{quizData[curr_question].choices[idx]}}
+              {{value}}
             </v-card-text>
           </v-card>
       </v-row>
@@ -30,10 +30,22 @@ export default {
   data () {
     return {
       curr_question: 0,
-      end_quiz: false
+      end_quiz: false,
+      quizChoiceStyle: ''
     }
   },
   methods: {
+    verify(ans) {
+      if (ans === this.quizData[this.curr_question].answer) {
+        this.quizChoiceStyle = {
+          'background-color': '#4CAF50'
+        }
+        console.log("correct")
+        return true
+      } else {
+        return false
+      }
+    },
     nextQuestion() {
       if (this.curr_question >= this.quizData.length - 1) {
         this.end_quiz = true

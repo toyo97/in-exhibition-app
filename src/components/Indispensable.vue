@@ -21,15 +21,18 @@ export default {
     return {
       quiz: false,
       quizData: [{
-              question: "How many clothing items do you buy every month?",
+              question: "Secondo te ci vogliono più litri d'acqua per produrre un avocado o un'arancia?",
               choices: [
-                  "1 or less", "1-5", "5-10", "10 or more"
-              ]
+                  "Avocado", "Arancia"
+              ],
+              answer: 0
       }, {
-              question: "How many euros do you spend for clothes every month?",
+              question: "Secondo te quanta CO2 si immette nell'atmosfera " +
+                  "per produrre un paio di calzini di lana (non fast-fashion)?",
               choices: [
-                "10 or less", "10-50", "50-100", "100 or more"
-              ]
+                "come mandare 50 e-mail", "come mandare 3650 e-mail", "come mandare 500 e-mail", "come mandare 12000 e-mail"
+              ],
+              answer: 1
             }]
     }
   },

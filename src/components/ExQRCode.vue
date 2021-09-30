@@ -7,7 +7,7 @@
         Così potrai salvare la tua esperienza!
         </span>
         <br>
-        <span>
+        <span v-if="compName !== 'Invisible'">
         Se non sei interessato/a, semplicemente clicca su "Quiz" o su "Avanti" per passare
         alla prossima exhibit.
         </span>

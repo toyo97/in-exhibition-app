@@ -21,14 +21,14 @@ export default {
     return {
       quiz: false,
       quizData: [{
-        question: "How often do you use public transportation?",
+        question: "Quanto spesso usi mezzi di trasporto pubblici?",
         choices: [
-          "Every day", "Once a week", "Once a month", "Never"
+          "Ogni giorno", "Una volta a settimana", "Una volta al mese", "Mai"
         ]
       }, {
-        question: "What means of transportation do you usually take for a daily commute?",
+        question: "Quale mezzo di trasporto usi di solito?",
         choices: [
-          "Car", "Bus/Train", "Bike", "Electric scooter"
+          "Macchina", "Bus/Treno", "Bicicletta", "Monopattino elettrico"
         ]
       }]
     }
