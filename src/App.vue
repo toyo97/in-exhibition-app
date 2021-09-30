@@ -44,13 +44,16 @@
     </v-app-bar>
 
     <v-main>
-      <v-container md="6" class="px-8" v-if="isMobile()" align-start fluid fill-height :style="styles">
+      <v-container id="main-cont"
+                   md="6" class="px-8" v-if="isMobile()"
+                   fluid fill-height :style="styles">
         <v-row>
           <v-col>
           <router-view/>
           </v-col>
         </v-row>
       </v-container>
+<!-- redirect to About page in case navigation from non-mobile device -->
       <v-container v-else fluid fill-height>
         <v-row align="center">
           <v-col sm="12" class="mr-8 ml-8">
