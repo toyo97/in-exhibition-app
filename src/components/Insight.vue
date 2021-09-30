@@ -1,20 +1,22 @@
 <template>
-  <v-container>
-  <p v-if="!quiz">Play the insight game!</p><br>
-  <p>When you're done, check the following quiz</p>
-  <v-btn v-if="!quiz" @click="toQuiz">To quiz</v-btn>
+  <div id="insight">
+    <div v-if="!quiz">
+      <ExQRCode v-bind:comp-name=$options.name v-if="!quiz"></ExQRCode>
+      <v-btn v-if="!quiz" @click="toQuiz" class="title-main">Quiz</v-btn>
+    </div>
 
-  <Quiz v-if="quiz" v-bind:quiz-data="quizData">
-  </Quiz>
-  </v-container>
+    <Quiz v-if="quiz" v-bind:quiz-data="quizData">
+    </Quiz>
+  </div>
 </template>
 
 <script>
 import Quiz from "@/components/Quiz";
+import ExQRCode from "@/components/ExQRCode";
 
 export default {
   name: "Insight",
-  components: {Quiz},
+  components: {ExQRCode, Quiz},
   data () {
     return {
       quiz: false,

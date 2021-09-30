@@ -24,7 +24,7 @@
   font-weight: bold;
 }
 
-.v-btn {
+.v-btn, .quiz-choice {
   background-color: #f5c02d !important;
   color: #1C2D46 !important;
   border-radius: 20px;
@@ -34,9 +34,22 @@ body {
   color: #1C2D46 !important;
 }
 
+//span.error {
+//  color : #DD573A !important;
+//}
+
 p {
   font-size: 4vw;
   color: #1C2D46;
   font-family: atsurt;
 }
 
+.quiz-title {
+  font-size: 6vw;
+  color: #1C2D46;
+  font-family: atsurt;
+}
+
+p span {
+  display: block;
+}

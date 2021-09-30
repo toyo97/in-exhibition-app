@@ -4,7 +4,7 @@
       >
       <v-img
           v-bind:src="require('../assets/imgs/' + boxCode + '_img.png')"
-          max-width="300"
+          max-width="100"
           contain
       ></v-img>
 <!--      <span>show quiz for {{scannedQuiz}}</span>-->
@@ -27,9 +27,9 @@ export default {
     return {
       boxData: [
         {
-          boxCode: "VGFHI",
+          boxCode: "DOT",
           data: "FTM, transgender, USA",
-          img: "../assets/imgs/VGFHI_img.png",
+          img: "../assets/imgs/DOT_img.png",
           desc: "A delivery person was scared of some creepy people, that had rebel flags, dead deer heads, Trump 2016 poster on the wall and had to pretend being not the FTM transgender to feel safer.",
           quizData: [{
             question: "The owner of the box...",
@@ -52,9 +52,9 @@ export default {
           }]
         },
         {
-          boxCode: "XQRTP",
+          boxCode: "9EL",
           data: "Male, Brown skin color",
-          img: "../assets/imgs/XQRTP_img.png",
+          img: "../assets/imgs/9EL_img.png",
           desc: "Refused to deliver because the customers have realized that the rider belongs to minority community. According to the officials and reports, the delivery person was wearing a mask and gloves to avoid contact with anyone. All other necessary precautions were taken stated by the health experts to avoid any form of risk. However, it was still humiliation by the customer. The rider filled a case at the police station and suctomer was arrested. ",
           quizData: [{
             question: "The owner of the box...",

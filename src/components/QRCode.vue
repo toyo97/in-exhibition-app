@@ -1,8 +1,14 @@
 <template>
   <div id="qr-reader">
-  <p>Click the button to scan QR-code</p>
-  <v-btn v-if="!isShowingCamera" @click="openCamera">Scan</v-btn>
-  <qrcode-stream v-if="isShowingCamera" @init="onInit" @decode="onDecode"></qrcode-stream>
+    <div v-if="!isShowingCamera">
+      <p>Clicca il pulsante per leggere il QR-code</p>
+      <v-img v-bind:src="require('../assets/gfx/qrcode_scan.png')" width="100px" v-on:click="openCamera"
+             class="mx-auto my-5" alt="Scan QR-code"
+      ></v-img>
+    </div>
+    <div v-else>
+      <qrcode-stream @init="onInit" @decode="onDecode"></qrcode-stream>
+    </div>
   </div>
 </template>
 

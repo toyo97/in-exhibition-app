@@ -1,45 +1,73 @@
 <template>
-<div id="exqrcode">
-  <div v-if="!isShowingCamera">
-    <v-img v-bind:src="require('../assets/gfx/qrcode_scan.png')" width="100px" v-on:click="openCamera"
-           class="mx-auto" alt="Scan QR-code"
-    ></v-img>
+  <div id="exqrcode">
+    <div v-if="!isShowingCamera && scanRes !== 2">
       <p>
+        <span>
         Inquadra il QR-code relativo all'exhibit prima di interagire.
         Così potrai salvare la tua esperienza!
+        </span>
         <br>
+        <span>
         Se non sei interessato/a, semplicemente clicca su "Quiz" o su "Avanti" per passare
         alla prossima exhibit.
+        </span>
       </p>
+      <v-img v-bind:src="require('../assets/gfx/qrcode_scan.png')" width="100px" v-on:click="openCamera"
+             class="mx-auto my-5" alt="Scan QR-code"
+      ></v-img>
+    </div>
+    <qrcode-stream class="my-5 mx-auto" v-if="isShowingCamera" @init="onInit" @decode="onDecode"></qrcode-stream>
+    <p v-if="scanRes === 1">
+      <span>
+        Sei davanti ad un'altra exhibit, vai di fronte a {{compName}} e scansiona di nuovo il codice.
+      </span>
+    </p>
+    <p v-else-if="scanRes === 2">
+      Perfetto, ora la tua esperienza verrà registrata sul tuo profilo!
+    </p>
   </div>
-  <qrcode-stream class="mx-5" v-if="isShowingCamera" @init="onInit" @decode="onDecode"></qrcode-stream>
-</div>
 </template>
 
 <script>
 export default {
   name: "ExQRCode",
-  data () {
+  data() {
     return {
       isShowingCamera: false,
+      scanRes: 0,
       result: '',
-      error: ''
+      error: '',
+      codeMap: {
+        "TB8":"Indispensable",
+        "T6F":"Insight",
+        "DHC":"Deliverin",
+        "IH3":"Invisible"
+      }
     }
   },
+  props: {
+    compName: String
+  },
   methods: {
-    openCamera () {
+    openCamera() {
       this.isShowingCamera = true;
     },
-
-    onDecode (result) {
+    onDecode(result) {
       this.result = result
       console.log(this.result)
+      if (this.codeMap[result] === this.compName) {
+        console.log("success")
+        this.scanRes = 2
+      } else {
+        console.log("wrong code")
+        this.scanRes = 1
+      }
       this.$emit('decode', this.result)
       // close the camera
       this.isShowingCamera = false;
     },
 
-    async onInit (promise) {
+    async onInit(promise) {
       try {
         await promise
       } catch (error) {

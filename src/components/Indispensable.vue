@@ -1,7 +1,7 @@
 <template>
   <div id="indispensable">
   <div v-if="!quiz">
-    <ExQRCode v-if="!quiz"></ExQRCode>
+    <ExQRCode v-bind:comp-name=$options.name v-if="!quiz"></ExQRCode>
     <v-btn v-if="!quiz" @click="toQuiz" class="title-main">Quiz</v-btn>
   </div>
 
@@ -13,6 +13,7 @@
 <script>
 import Quiz from "@/components/Quiz";
 import ExQRCode from "@/components/ExQRCode";
+
 export default {
   name: "Indispensable",
   components: {ExQRCode, Quiz},

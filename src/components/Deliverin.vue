@@ -1,27 +1,49 @@
 <template>
-<v-container>
-  <v-container v-if="code === ''">
-    <p>Scan the objects and try to guess</p>
+  <div id="deliverin">
+    <div v-if="!quiz">
+      <ExQRCode v-bind:comp-name=$options.name v-if="!quiz"></ExQRCode>
+      <v-btn v-if="!quiz" @click="toQuiz" class="title-main">Quiz</v-btn>
+    </div>
 
-    <QRCode @decode="code = $event"></QRCode>
-  </v-container>
+    <div v-else>
+      <div v-if="code === ''">
+        <p>
+          <span>
+            Scegli un box e scansiona il QR-code che trovi stampato per accedere al quiz relativo.
+          </span>
+        </p>
 
-  <v-container v-else>
-    <v-btn @click="function () {code = ''}">Re-scan</v-btn>
-    <DelQuiz v-bind:boxCode="code"></DelQuiz>
-  </v-container>
-</v-container>
+        <QRCode @decode="code = $event"></QRCode>
+      </div>
+      <div v-else>
+        <DelQuiz v-bind:boxCode="code"></DelQuiz>
+        <v-btn @click="function () {code = ''}">
+          <span class="title-main">
+          Altro quiz
+          </span>
+        </v-btn>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import QRCode from "@/components/QRCode";
 import DelQuiz from "@/components/DelQuiz";
+import ExQRCode from "@/components/ExQRCode";
+
 export default {
 name: "Deliverin",
-  components: {DelQuiz, QRCode},
+  components: {ExQRCode, DelQuiz, QRCode},
   data () {
     return {
-      code: ''
+      code: '',
+      quiz: false
+    }
+  },
+  methods: {
+    toQuiz() {
+      this.quiz = true
     }
   }
 }
