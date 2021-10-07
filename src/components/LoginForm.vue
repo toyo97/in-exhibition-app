@@ -6,7 +6,7 @@
     <br>
       <v-text-field v-model="age" :rules="ageRules" placeholder="Quanti anni hai?" required></v-text-field>  <br>
       <v-select v-model="gender" :items="items" required placeholder="La tua identità di genere è"></v-select>
-      <v-text-field v-model="gender" :rules="genderRules" v-if="!['Uomo', 'Donna', 'Preferisco non rispondere', ''].includes(gender) || isOther"
+      <v-text-field v-model="gender" :rules="genderRules" v-if="!['Uomo', 'Donna', 'Non-binary', 'Preferisco non rispondere', ''].includes(gender) || isOther"
              placeholder="La tua identità di genere è"></v-text-field><br>
     </v-form>
 
@@ -20,7 +20,7 @@ export default {
     return {
       isOther: false,
       gender: '',
-      items: ['Uomo', 'Donna', 'Preferisco non rispondere', 'Altro'],
+      items: ['Uomo', 'Donna', 'Non-binary', 'Preferisco non rispondere', 'Altro'],
       nameRules: [
           v => !!v || "Devi inserire un nome",
           v => /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(v) || "Numeri e caratteri speciali non sono ammessi"
