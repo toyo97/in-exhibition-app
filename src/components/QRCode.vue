@@ -57,6 +57,7 @@ export default {
           this.error = `ERROR: Camera error (${error.name})`;
         }
       }
+      alert("Consenti l'accesso alla fotocamera")
     }
   }
 }

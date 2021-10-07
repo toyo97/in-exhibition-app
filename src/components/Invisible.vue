@@ -1,7 +1,13 @@
 <template>
   <div id="invisible">
-    <div v-if="!quiz">
-      <ExQRCode v-bind:comp-name=$options.name v-if="!quiz"></ExQRCode>
+    <div>
+      <ExQRCode v-bind:comp-name=$options.name></ExQRCode>
+      <p>
+        <span>
+          Oppure, ascolta direttamente la storia di Sissi!
+        </span>
+        <v-btn @click="toQuiz" class="title-main ma-3">Ascolta</v-btn>
+      </p>
     </div>
   </div>
 </template>
