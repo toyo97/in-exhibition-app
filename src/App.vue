@@ -54,9 +54,9 @@
         </v-row>
       </v-container>
 <!-- redirect to About page in case navigation from non-mobile device -->
-      <v-container v-else fluid fill-height>
-        <v-row align="center">
-          <v-col sm="12" class="mr-8 ml-8">
+      <v-container class="align-start" v-else fluid fill-height style="background-color: #E3DFD3">
+        <v-row align="start">
+          <v-col class="ma-5">
             <About></About>
           </v-col>
         </v-row>
