@@ -5,10 +5,13 @@ import router from './router'
 import vuetify from './plugins/vuetify';
 import VueQrcodeReader from "vue-qrcode-reader";
 import '../src/assets/css/styles.scss';
+import VueAudio from 'vue-audio-better'
+
 
 Vue.config.productionTip = false
 Vue.use(VueQrcodeReader)
 Vue.use(Vuex)
+Vue.use(VueAudio)
 
 const store = new Vuex.Store({
   state: {
