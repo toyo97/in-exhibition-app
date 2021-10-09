@@ -9,9 +9,9 @@
         <v-btn @click="function () {showAudioPlayer = true}" class="title-main ma-3">Ascolta</v-btn>
       </p>
     </div>
-    <div v-if="showAudioPlayer" align="center" class="px-auto py-6">
+    <div v-if="showAudioPlayer" align="center" class="px-auto py-3">
       <v-img
-          v-bind:src="require('../assets/gfx/Group.png')" width="50"></v-img>
+          v-bind:src="require('../assets/imgs/sissi.png')" width="150"></v-img>
       <mini-audio
           class="my-4"
           style="background-color: #F5C02D !important; background-image: none !important;"

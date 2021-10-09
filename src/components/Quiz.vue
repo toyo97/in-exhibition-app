@@ -18,11 +18,11 @@
       <span style="font-family: atsurt; color: #1C2D46; font-weight: bold">{{result}}</span>
     </v-col>
     <br>
-    <span v-if="end_quiz">Bene, prova il quiz con un altro box vai alla prossima exhibit</span>
+    <span v-if="end_quiz && $store.state.obj.curr_exhibit === 3">Bene, prova il quiz con un altro box o vai alla prossima exhibit</span>
+    <span v-if="end_quiz && $store.state.obj.curr_exhibit !== 3">Bene, interagisci con l'exhibit o vai alla prossima</span>
   </div>
 </template>
 
-<!--TODO fix button dimensions-->
 
 <script>
 export default {
@@ -50,9 +50,9 @@ export default {
         }
       }
       if (ans === this.quizData[this.curr_question].answer) {
-        this.result = "Correct!"
+        this.result = "Esatto!"
       } else {
-        this.result = "Wrong"
+        this.result = "Sbagliato..."
         // console.log(ans + ", " + this.quizData[this.curr_question].answer)
       }
       await delay(2000);
@@ -62,6 +62,7 @@ export default {
     },
     nextQuestion() {
       if (this.curr_question >= this.quizData.length - 1) {
+        this.$emit('ended', true)
         this.end_quiz = true
       } else {
         this.curr_question++

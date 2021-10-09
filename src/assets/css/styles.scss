@@ -63,3 +63,20 @@ p span {
 .quiz-choice {
   width: 100%
 }
+
+p.story-text {
+  font-size: .8em;
+}
+
+p.scroll-indicator {
+  font-size: .6em;
+  font-style: italic;
+}
+
+img.story-background {
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

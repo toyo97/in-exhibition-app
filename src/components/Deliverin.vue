@@ -1,25 +1,30 @@
 <template>
   <div id="deliverin">
-    <div v-if="!quiz">
-      <ExQRCode v-bind:comp-name=$options.name v-if="!quiz"></ExQRCode>
-      <v-btn v-if="!quiz" @click="toQuiz" class="title-main">Quiz</v-btn>
+    <div v-if="!boxQuiz">
+      <ExQRCode v-bind:comp-name=$options.name></ExQRCode>
+      <v-btn v-on:click="toScan()" class="title-main">Box</v-btn>
     </div>
 
     <div v-else>
-      <div v-if="code === ''">
+      <div v-if="code === ''" align="center">
         <p>
           <span>
-            Scegli un box e scansiona il QR-code che trovi stampato per accedere al quiz relativo.
+            Attiva l'NFC e avvicina il cellulare al box.
           </span>
+          <span v-if="simulateScan">Scanning...</span>
+          <v-btn
+              class="ma-4"
+              large fab
+              v-on:click="toBoxQuiz()">
+            <v-icon>mdi-access-point</v-icon>
+          </v-btn>
         </p>
-
-        <QRCode @decode="code = $event"></QRCode>
       </div>
-      <div v-else>
+      <div v-else align="center">
         <DelQuiz v-bind:boxCode="code"></DelQuiz>
-        <v-btn @click="function () {code = ''}">
+        <v-btn @click="function () {code = ''}" class="ma-4">
           <span class="title-main">
-          Altro quiz
+          Altro box
           </span>
         </v-btn>
       </div>
@@ -28,22 +33,30 @@
 </template>
 
 <script>
-import QRCode from "@/components/QRCode";
 import DelQuiz from "@/components/DelQuiz";
 import ExQRCode from "@/components/ExQRCode";
 
 export default {
 name: "Deliverin",
-  components: {ExQRCode, DelQuiz, QRCode},
+  components: {ExQRCode, DelQuiz},
   data () {
     return {
       code: '',
-      quiz: false
+      boxQuiz: false,
+      simulateScan: false
     }
   },
   methods: {
-    toQuiz() {
-      this.quiz = true
+    async toBoxQuiz() {
+      const delay = ms => new Promise(res => setTimeout(res, ms));
+
+      this.simulateScan = true
+      await delay(1000)
+      this.simulateScan = false
+      this.code = 'DOT'
+    },
+    toScan() {
+      this.boxQuiz = true
     }
   }
 }

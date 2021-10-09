@@ -44,12 +44,13 @@ export default {
   methods: {
     toggle () {
       switch (this.component) {
-        case "LoginForm": this.component = "Indispensable"; break;
+        case "LoginForm": this.component = "Indispensable"; this.$store.state.obj.curr_exhibit=0; break;
         case "Indispensable": this.component = "Insight"; break;
         case "Insight": this.component = "Deliverin"; break;
         case "Deliverin": this.component = "Invisible"; break
         case "Invisible": this.component = "End"; break;
       }
+      this.$store.commit("nextExhibit")
     }
   }
   // props: {
